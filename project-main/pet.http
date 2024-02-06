@@ -1,0 +1,126 @@
+@hostname = 127.0.0.1
+@port = 3000
+@serverUrl = http://{{hostname}}:{{port}}
+@baseUrl = http://{{hostname}}:{{port}}
+
+###
+
+GET {{baseUrl}}/
+
+###
+GET {{baseUrl}}/status HTTP/1.1
+
+###
+POST {{baseUrl}}/pet
+Content-Type: application/json
+
+{
+    "name" : "อาโป",
+    "type" : "แพนด้า",
+    "price" : 15,
+    "status" : "ready"
+}
+###
+POST {{baseUrl}}/pet
+Content-Type: application/json
+
+{
+    "name" : "ลิลลี่",
+    "type" : "นก",
+    "price" : 15,
+    "status" : "ready"
+}
+###
+
+GET {{baseUrl}}/pet
+###
+
+DELETE {{baseUrl}}/pet
+###
+
+POST {{baseUrl}}/purchaseorder
+Content-Type: application/json
+
+{
+    "user_id": "01",
+    "pet_id": "01",
+    "Date" :"30/1/2567",
+    "purchase_user" : "film",
+    "pet" : "bird",
+    "is_paid" : "22",
+    "delivery_address" : "phayao"
+}
+
+###
+POST {{baseUrl}}/petbaseentity
+Content-Type: application/json
+
+{
+    "id" : "001"
+}
+
+###
+POST {{baseUrl}}/User
+Content-Type: application/json
+
+{
+    "username" : "filmlnwza",
+    "password" : "064film",
+    "address"  : "Phichit",
+    "first_name" : "panaphat",
+    "last_name" : "sooksampan",
+    "phone"  : "0642404608",
+    "roles" : "user",
+    "is_admin" : "yes"
+}
+###
+POST {{baseUrl}}/User
+Content-Type: application/json
+
+{
+    "username" : "guylnwza",
+    "password" : "01guy",
+    "address"  : "ลำพูน",
+    "first_name" : "kornkanok",
+    "last_name" : "suthatothon",
+    "phone"  : "000",
+    "roles" : "user",
+    "is_admin" : "no"
+}
+###
+
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+    "username" :"Film",
+    "password" : "064film"
+}
+
+###
+GET {{baseUrl}}/auth/profile
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImZpbG0iLCJpYXQiOjE3MDcxNTAzNzQsImV4cCI6MTcwNzE1MDQzNH0.zXF0ufkG0DAgrQofFn79s2910DptcOpdhpPenN83Xyw
+###
+GET {{baseUrl}}/bothUsers
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImZpbG0iLCJpYXQiOjE3MDcxNTAxMzAsImV4cCI6MTcwNzE1MDE5MH0.HUvqC7nq5i4vAWgc5S4XFou4TmWsu078jie6Ybg7kr8
+
+###
+GET {{baseUrl}}/only-users
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImZpbG0iLCJpYXQiOjE3MDcxNTAxMzAsImV4cCI6MTcwNzE1MDE5MH0.HUvqC7nq5i4vAWgc5S4XFou4TmWsu078jie6Ybg7kr8
+
+### 
+GET {{baseUrl}}/only-admin
+Content-Type: application/json
+Authorization: Bearer 
+
+###
+POST  {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+    "username" : "film",
+    "password" : "eiei"
+}
